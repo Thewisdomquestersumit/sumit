@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Form with Validation</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f0f0f0;
+            margin: 0;
+            padding: 0;
+        }
+        .container {
+            width: 40%;
+            margin: 50px auto;
+            background-color: #fff;
+            padding: 40px;
+            box-shadow: 40px 40px 10px rgba(0, 0, 0, 0.1);
+        }
+        h2 {
+            text-align: center;
+        }
+        label {
+            display: block;
+            margin-bottom: 10px;
+        }
+        input, select, textarea {
+            width: 100%;
+            padding: 8px;
+            margin: 5px 0;
+            box-sizing: border-box;
+        }
+        .submit-btn {
+            background-color: #28a745;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+        }
+        .submit-btn:hover {
+            background-color: #585d59;
+        }
+        .reset-btn {
+            background-color: #877e7f;
+            color: white;
+            padding: 10px;
+            border: none;
+            cursor: pointer;
+            width: 100%;
+            margin-top: 10px;
+        }
+        .reset-btn:hover {
+            background-color: #c82333;
+        }
+    </style>
+</head>
+<body>
+
+<div class="container">
+    <h2>Enter Your Details Here</h2>
+    <form id="userForm">
+        <label for="fname">First Name</label>
+        <input type="text" id="fname" name="fname" required placeholder="Enter your first name">
+
+        <label for="age">Age</label>
+        <input type="number" id="age" name="age" min="1" max="120" required placeholder="Enter your age">
+
+        <label for="dob">Date of Birth</label>
+        <input type="date" id="dob" name="dob" required>
+
+        <label for="email">Email</label>
+        <input type="email" id="email" name="email" required placeholder="Enter your email">
+
+        <label for="password">Password</label>
+        <input type="password" id="password" name="password" required minlength="6" placeholder="Enter your password">
+
+        <label for="size"> Enter your T-Shirt Size</label>
+        <input type="radio" id="small" name="size" value="small size" required> Small size
+        <input type="radio" id="large" name="size" value="large size"> Large size
+
+        <label for="color">Your Favorite Color</label>
+        <input type="color" id="color" name="color">
+
+        <label for="about">Tell us about yourself</label>
+        <textarea id="about" name="about" rows="5" placeholder="Write something..."></textarea>
+
+        <button type="submit" class="submit-btn">Submit</button>
+        <button type="reset" class="reset-btn">Reset</button>
+    </form>
+</div>
+
+<script>
+    document.getElementById("userForm").onsubmit = function(event) {
+        const fname = document.getElementById("fname").value;
+        const age = document.getElementById("age").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (fname.length < 2) {
+            alert("First name must be at least 2 characters long.");
+            event.preventDefault();
+        }
+
+        if (age < 1 || age > 120) {
+            alert("Please enter a valid age between 1 and 120.");
+            event.preventDefault();
+        }
+
+        if (!email.includes("@")) {
+            alert("Please enter a valid email address.");
+            event.preventDefault();
+        }
+
+        if (password.length < 6) {
+            alert("Password must not be a greayer than 5 characters long.");
+            event.preventDefault();
+        }
+    };
+</script>
+
+</body>
+</html>

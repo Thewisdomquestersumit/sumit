@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    
+</body>
+<script>
+    // Create a new <div> element
+    let div = document.createElement("div");
+    div.textContent = "Div"; // Set the text content of the div
+    div.id = "parent-div"; // Assign an ID to the div
+    document.body.appendChild(div); // Append the div to the body of the document
+
+    // Create a new <button> element
+    let button = document.createElement("button");
+    button.textContent = "Submit"; // Set the text content of the button
+    button.id = "btn"; // Assign an ID to the button
+
+    // Create a new <p> element
+    let paragraph = document.createElement("p");
+    paragraph.textContent = "paragraph"; // Set the text content of the paragraph
+    paragraph.id = "para"; 
+
+    
+    div.appendChild(paragraph);
+    div.appendChild(button);
+</script>
+
+</html>

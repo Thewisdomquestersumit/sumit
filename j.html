@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<button id="btn">Click me</button>
+<p id="para"></p>
+<label for="nameInput" id="lab">Name:</label>
+<input type="text" id="nameInput" placeholder="Enter Your Name">
+<p id="focusMessage"></p>
+<body>
+ 
+  <script>
+document.getElementById("btn").onclick = function() {
+  document.getElementById("para").innerHTML = "<b>CSE-AIML-C</b>"  //
+}
+
+document.getElementById("nameInput").onfocus=function(){
+    document.getElementById("focusMessage").innerText = "Input Field Focused"  //
+
+};
+document.getElementById("nameInput").onblur=function(){
+    document.getElementById("focusMessage").innerText = "Input Field Focused lost"  //
+
+};
+  </script>
+
+</body>
+
+</html> 

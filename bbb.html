@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Enter Your Details Here</title>
+</head>
+<body>
+
+<h2>Enter Your Details Here</h2>
+
+<form action="/submit_form" method="post">
+    <label for="fname">First Name:</label><br>
+    <input type="text" id="fname" name="fname" required pattern="[A-Za-z]+" title="Only letters are allowed"><br>
+
+       
+    <label for="age">age:</label><br>
+    <input type="age" id="age" name="age" minlength="5" required><br>
+
+    <label for="dob">Date of Birth:</label><br>
+    <input type="date" id="dob" name="dob" required><br>
+
+    <label for="email">Email ID:</label><br>
+    <input type="email" id="email" name="email" required><br>
+
+    <label for="password">Password:</label><br>
+    <input type="password" id="password" name="password" minlength="8" required><br>
+
+    <label>enter your Tshirt size:</label><br>
+    <input type="radio" id="small size" name="enter your Tshirt size" value="large size" required>
+    <label for="small size">small size</label><br>
+    <input type="radio" id="large size" name="enter your Tshirt size" value="small size" required>
+    <label for="large size">large</label><br>
+
+    <label for="about">Tell Us About Yourself:</label><br>
+    <textarea id="about" name="about" rows="4" cols="50" required></textarea><br>
+
+    <input type="submit" value="Submit">
+    <input type="reset" value="Reset">
+</form>
+<script>
+    document.getElementById("userForm").onsubmit = function(event) {
+        const fname = document.getElementById("fname").value;
+        const age = document.getElementById("age").value;
+        const email = document.getElementById("email").value;
+        const password = document.getElementById("password").value;
+
+        if (fname.length < 5) {
+            alert("First name must be at least 2 characters long.");
+            event.preventDefault();
+        }
+
+        if (age < 1 || age > 120) {
+            alert("Please enter a valid age between 1 and 120.");
+            event.preventDefault();
+        }
+
+        if (!email.includes("@")) {
+            alert("Please enter a valid email address.");
+            event.preventDefault();
+        }
+
+        if (password.length < 6) {
+            alert("Password must not be a greayer than 5 characters long.");
+            event.preventDefault();
+        }
+    };
+</body>
+</html>
